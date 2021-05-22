@@ -1,0 +1,143 @@
+<div class="container">
+  <div class="d-flex align-items-center w-100 mt-5">
+    <span class="text-info">{{ text }}&nbsp;-&nbsp;</span>
+    <button class="btn btn-primary btn-sm py-0" (click)="pushHandler()">Push {{ pushCount }}</button>
+  </div>
+
+  <div class="mb-4">
+    <p>{{ title }}</p>
+    <p>{{ arr }}</p>
+    <img width="100" height="" [src]="src" alt="">
+  </div>
+
+  <hr>
+
+  <div class="mb-2">
+    <input type="text" (keyup)="checkInputResult($event)"> - <span>keyup event</span>
+  </div>
+
+  <div class="mb-2">
+    <input type="text" (keyup.enter)="checkInputResult($event)"> - <span>keyup.enter event</span>
+  </div>
+
+  <div class="mb-2">
+    <input type="text" (blur)="onBlur(myInput.value)" #myInput> - <span>blur event</span>
+  </div>
+
+  <p><strong>{{ inputResult }}</strong></p>
+
+  <hr>
+
+  <div class="my-4">
+    <span>2 way binding</span> -
+    <input type="text"
+           [value]="twoWayBindingTitle"
+           (input)="onInput($event)"
+    > -
+    <span>{{ twoWayBindingTitle }}</span>
+  </div>
+
+  <div class="my-4">
+    <span>2 way binding GOOD (FormsModule)</span> -
+    <input type="text"
+           [(ngModel)]="twoWayBindingTitleTwo"
+    > -
+    <span>{{ twoWayBindingTitleTwo }}</span>
+  </div>
+
+  <hr>
+
+  <div class="d-flex">
+    <div class="mt-2 mr-2" [ngStyle]="{
+      width: '200px',
+      height: '200px',
+      borderRadius: '10px',
+      border: '1px solid black',
+      padding: '10px',
+      background: bgToggle ? 'red' : 'blue'
+     }">
+      <span>[ngStyle]</span>
+      <button class="mt-5" (click)="bgToggle = !bgToggle">Toggle background</button>
+    </div>
+
+    <div class="mt-2 ng-block-class"
+         [ngClass]="{
+          'red-bg': !toggleClass,
+          'blue-bg': toggleClass
+         }"
+    >
+      <span>[ngClass] binding</span>
+      <button class="mt-5" (click)="toggleClass = !toggleClass">Toggle class</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="mt-2">
+      <span
+        [class.blue-color]="!classRed"
+        [class.red-color]="classRed"
+      >class binding [class.*-color]="!class*"]</span> -
+    <button class="mt-5" (click)="classRed = !classRed">Toggle class red</button>
+  </div>
+
+  <hr>
+
+  <div class="mt-2">
+    <h2>[ngIf] / else</h2>
+    <button class="btn btn-sm btn-info py-0" (click)="toggleParagraph = !toggleParagraph">Toggle paragrath</button>
+
+    <p *ngIf="toggleParagraph; else qwerty2" class="text-danger">qwerty 1</p>
+    <ng-template #qwerty2>
+      <p class="text-info">qwerty 2</p>
+    </ng-template>
+  </div>
+
+  <hr>
+
+  <div class="mt-2">
+    <h2>[ngSwitch]</h2>
+    <button class="btn btn-sm btn-info py-0" (click)="switchToggle = !switchToggle">Toggle paragrath</button>
+
+    <p [ngSwitch]="switchToggle">
+      <span *ngSwitchCase="true">switch 1</span>
+      <span *ngSwitchCase="false">switch 2</span>
+      <span *ngSwitchDefault>switch 3</span>
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="mt-2">
+    <h2>ngFor array</h2>
+    <ul>
+      <li *ngFor="let num of arrayNgFor; let idx = index"><span>index: {{ idx }}, value: {{ num }}</span></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <div class="mt-2">
+    <h2>ngFor arr obj</h2>
+    <ul>
+      <li *ngFor="let post of objectsArray; let idx = index">
+        <p>{{ post.title }} <b>{{ post.author }}</b></p>
+        <ul>
+          <li><strong>Comments:</strong></li>
+          <li *ngFor="let comment of post.comments">
+            <strong>{{ comment.name }}</strong>
+            <p>{{ comment.text }}</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <div class="mt-2">
+    <h2>Pipes</h2>
+    <p>Date now: {{ now | date | uppercase }}</p>
+  </div>
+
+</div>
