@@ -9,6 +9,9 @@ import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { FetchDataComponent } from "./fetch-data/fetch-data.component";
 import { TrainingComponent } from "./training/training.component";
+import { PostMainComponent } from "./post-main/post-main.component";
+import { PostComponent } from "./post/post.component";
+import { PostFormComponent } from "./post-form/post-form.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { TrainingComponent } from "./training/training.component";
     NavMenuComponent,
     WelcomeComponent,
     FetchDataComponent,
-    TrainingComponent
+    TrainingComponent,
+    PostMainComponent,
+    PostComponent,
+    PostFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -25,6 +31,7 @@ import { TrainingComponent } from "./training/training.component";
     RouterModule.forRoot([
       { path: '', component: WelcomeComponent, pathMatch: 'full' },
       { path: 'training', component: TrainingComponent },
+      { path: 'post-main', component: PostMainComponent },
       { path: 'fetch-data', component: FetchDataComponent }
     ])
   ],

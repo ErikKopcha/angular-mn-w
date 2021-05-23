@@ -1,0 +1,23 @@
+<h2>POST form</h2>
+
+<div>
+  <input
+    [(ngModel)]="title"
+    type="text"
+    class="form-control mb-2"
+    placeholder="Title">
+  <input
+    [(ngModel)]="text"
+    type="text"
+    class="form-control mb-2"
+    placeholder="Text">
+
+  <div class="row m-0">
+    <button
+      (click)="addPost()"
+      class="btn btn-info mt-2 mr-2">Add post</button>
+    <button
+      (click)="onResetForm()"
+      class="btn btn-danger mt-2">Reset</button>
+  </div>
+</div>

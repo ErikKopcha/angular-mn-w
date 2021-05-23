@@ -1,0 +1,12 @@
+<div class="container">
+  <app-post-form
+    (onAdd)="updatePosts($event)"
+  ></app-post-form>
+
+  <hr />
+
+  <app-post
+    *ngFor="let postItem of posts"
+    [post]="postItem"
+  ></app-post>
+</div>
