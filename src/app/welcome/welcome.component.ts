@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Calc} from "../store/calc";
 
 @Component({
   selector: 'app-welcome',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 
-export class WelcomeComponent {}
+export class WelcomeComponent {
+
+}

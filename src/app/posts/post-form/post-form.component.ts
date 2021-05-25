@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from "@angular/core";
+import {Component, EventEmitter, Output, ViewChild} from "@angular/core";
 import { Post } from "../post-main/post-main.component";
 
 @Component({
@@ -9,7 +9,8 @@ import { Post } from "../post-main/post-main.component";
 
 export class PostFormComponent {
   // для отправки данных наружу с компонента
-  @Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>()
+  @Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>();
+  @ViewChild('titleInput', {static: false}) inputRef;
 
   public title: string = '';
   public text: string = '';
@@ -39,5 +40,9 @@ export class PostFormComponent {
     if (this.text.trim() === '') return false;
 
     return true;
+  }
+
+  public focusTitle() {
+    this.inputRef.nativeElement.focus();
   }
 }
