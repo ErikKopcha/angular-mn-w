@@ -1,5 +1,8 @@
 <div class="card p-3 mb-2">
-  <h2>{{ post.title }}</h2>
+  <div class="d-flex">
+    <h2>{{ post.title }}</h2>
+    <button (click)="onRemovePost()" class="btn btn-sm my-0 py-0 btn-danger ml-auto">Remove post</button>
+  </div>
   <p>{{ post.text }}</p>
 
   <ng-content></ng-content>
