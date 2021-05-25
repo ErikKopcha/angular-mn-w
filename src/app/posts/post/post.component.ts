@@ -14,7 +14,8 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  SimpleChanges
+  SimpleChanges,
+  ViewEncapsulation
 } from "@angular/core";
 import {Post} from "../post-main/post-main.component"; // принимаем параметры из post-main.component
 
@@ -22,7 +23,8 @@ import {Post} from "../post-main/post-main.component"; // принимаем п�
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush // only for @Input changes
+  changeDetection: ChangeDetectionStrategy.OnPush, // only for @Input changes
+  encapsulation: ViewEncapsulation.None
 })
 export class PostComponent implements
   OnInit,
