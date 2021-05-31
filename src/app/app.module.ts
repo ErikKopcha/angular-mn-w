@@ -12,6 +12,7 @@ import { TrainingComponent } from "./training/training.component";
 import { PostMainComponent } from "./posts/post-main/post-main.component";
 import { PostComponent } from "./posts/post/post.component";
 import { PostFormComponent } from "./posts/post-form/post-form.component";
+import { StyleDirectives } from "./directives/style.directives";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PostFormComponent } from "./posts/post-form/post-form.component";
     PostMainComponent,
     PostComponent,
     PostFormComponent,
+    StyleDirectives,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
