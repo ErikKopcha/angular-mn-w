@@ -1,5 +1,12 @@
 <div class="container">
   <div class="mb-2">
+
+    <button
+      (click)="isVisible = !isVisible"
+      class="btn btn-outline-warning">Toggle visible</button>
+    <p *appIfNot="!isVisible">*appIfNot = in visible</p>
+    <p *ngIf="isVisible">in visible</p>
+
     <p [appStyle]="'green'" [dStyles]="{border: '1px solid blue', fontWeight: 'bold', borderRadius: '5xp'}"><span>Directive attr</span></p>
   </div>
 

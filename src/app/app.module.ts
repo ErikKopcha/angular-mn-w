@@ -13,6 +13,7 @@ import { PostMainComponent } from "./posts/post-main/post-main.component";
 import { PostComponent } from "./posts/post/post.component";
 import { PostFormComponent } from "./posts/post-form/post-form.component";
 import { StyleDirectives } from "./directives/style.directives";
+import { IfnotDirective } from "./directives/ifnot.directive";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { StyleDirectives } from "./directives/style.directives";
     PostComponent,
     PostFormComponent,
     StyleDirectives,
+    IfnotDirective,
+    IfnotDirective,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

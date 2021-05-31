@@ -7,6 +7,7 @@ import { Component } from "@angular/core";
 })
 
 export class TrainingComponent {
+  public isVisible = true;
   public text: string = 'Count';
   public pushCount: number = 0;
 
