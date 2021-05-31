@@ -6,6 +6,7 @@ import {Directive, ElementRef, HostBinding, HostListener, Input, Renderer2} from
 export class StyleDirectives {
   @Input('appStyle') color: string = 'blue';
   @Input() dStyles: {border?: string, fontWeight?: string, borderRadius?: string}
+  @HostBinding('style.color') elColor = null;
 
   constructor(private elRef: ElementRef, private renderer: Renderer2) {
     this.renderer.setStyle(this.elRef.nativeElement, 'color', 'red');
@@ -17,13 +18,15 @@ export class StyleDirectives {
   }
 
   @HostListener('mouseenter', ["$event"]) onMouseEnter(event: Event) {
-    this.renderer.setStyle(this.elRef.nativeElement, 'color', this.color);
+    this.elColor = this.color;
+    // this.renderer.setStyle(this.elRef.nativeElement, 'color', this.color);
     // this.renderer.setStyle(this.elRef.nativeElement, 'border', this.dStyles.border);
     // this.renderer.setStyle(this.elRef.nativeElement, 'fontWeight', this.dStyles.fontWeight);
     // this.renderer.setStyle(this.elRef.nativeElement, 'borderRadius', this.dStyles.borderRadius);
   }
   @HostListener('mouseleave', ["$event"]) onMouseLeave(event: Event) {
-    this.renderer.setStyle(this.elRef.nativeElement, 'color', null);
+    this.elColor = null;
+    // this.renderer.setStyle(this.elRef.nativeElement, 'color', null);
     // this.renderer.setStyle(this.elRef.nativeElement, 'border', null);
     // this.renderer.setStyle(this.elRef.nativeElement, 'fontWeight', null);
     // this.renderer.setStyle(this.elRef.nativeElement, 'borderRadius', null);
