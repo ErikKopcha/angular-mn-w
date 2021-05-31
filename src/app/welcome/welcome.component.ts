@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Calc} from "../store/calc";
 
 @Component({
   selector: 'app-welcome',
