@@ -1,5 +1,17 @@
 <div class="container">
   <div class="mb-2">
+    <h2>Angular pipes</h2>
+    <p>Custom pipe - {{ 10 | mult }} </p>
+    <p>{{ pipeDate | date:'dd MMMM yyyy' }}</p>
+    <p>{{ pipeStr | slice:-5 | titlecase }}</p>
+    <p>{{ pipeStr | uppercase }}</p>
+    <p>{{ pipeStr | titlecase }}</p>
+    <p>{{ pipesNum | number: '1.1-5' }}</p>
+    <p>{{ pipesNum | number: '3.1-5' }}</p>
+    <p>{{ 2001 | number: '3.1-2' }}</p>
+  </div>
+
+  <div class="mb-2">
 
     <button
       (click)="isVisible = !isVisible"

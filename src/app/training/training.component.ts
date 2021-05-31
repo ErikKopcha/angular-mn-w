@@ -10,22 +10,18 @@ export class TrainingComponent {
   public isVisible = true;
   public text: string = 'Count';
   public pushCount: number = 0;
-
   public src: string = 'https://repository-images.githubusercontent.com/24195339/87018c00-694b-11e9-8b5f-c34826306d36';
   public twoWayBindingTitleTwo: string = 'test good';
   public twoWayBindingTitle: string = 'test';
   public title: string = 'Dynamic title';
   public inputResult: string = '';
-
   public toggleParagraph: boolean = true;
   public toggleClass: boolean = false;
   public switchToggle: boolean = true;
   public bgToggle: boolean = false;
   public classRed: boolean = false;
-
   public arrayNgFor: any = [1, 1, 2, 3, 5, 8, 13];
   public arr: any = [1,2,3];
-
   public objectsArray: any = [
     {
       title: 'Post 1',
@@ -48,8 +44,10 @@ export class TrainingComponent {
       ]
     },
   ];
-
   public now: Date = new Date();
+  public pipesNum: number = Math.E;
+  public pipeStr: string = 'hello world';
+  public pipeDate: Date = new Date();
 
   constructor() {
     setTimeout(() => {
@@ -60,15 +58,12 @@ export class TrainingComponent {
   public checkInputResult(event: KeyboardEvent) {
     this.inputResult = (<HTMLInputElement>event.target).value;
   }
-
   public onBlur(str: string) {
     this.inputResult = str;
   }
-
   public onInput(event: any) {
     this.twoWayBindingTitle = event.target.value;
   }
-
   public pushHandler() {
     this.pushCount++;
   }
