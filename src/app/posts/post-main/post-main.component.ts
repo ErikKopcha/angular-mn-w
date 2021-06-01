@@ -14,9 +14,14 @@ export interface Post {
 })
 
 export class PostMainComponent {
+  search: string = '';
+
+  constructor() {}
+
   public posts: Post[] = [
     { title: 'Learn Angular and Components', text: 'qwerty qwerty qwerty qwerty qwerty', id: 1 },
-    { title: 'Learn TypeScript', text: 'zxczxc zxczxc zxczxc zxczxc zxczxc ', id: 2 }
+    { title: 'Learn TypeScript', text: 'zxczxc zxczxc zxczxc zxczxc zxczxc ', id: 2 },
+    { title: 'Learn React', text: '123 12 3123 123  ', id: 3 }
   ];
 
   public updatePosts(post: Post) {

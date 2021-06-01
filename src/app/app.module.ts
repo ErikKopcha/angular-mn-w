@@ -14,7 +14,8 @@ import { PostComponent } from "./posts/post/post.component";
 import { PostFormComponent } from "./posts/post-form/post-form.component";
 import { StyleDirectives } from "./directives/style.directives";
 import { IfnotDirective } from "./directives/ifnot.directive";
-import {MultByPipe} from "./directives/pipes/mult-by.pipe";
+import { MultByPipe } from "./pipes/mult-by.pipe";
+import { FilterPipe } from "./pipes/filter.pipe";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {MultByPipe} from "./directives/pipes/mult-by.pipe";
     StyleDirectives,
     IfnotDirective,
     MultByPipe,
+    FilterPipe,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

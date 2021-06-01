@@ -4,9 +4,11 @@
   ></app-post-form>
 
   <hr />
+  <input type="text" class="form-control mt-2" placeholder="search" [(ngModel)]="search">
+  <hr />
 
   <app-post
-    *ngFor="let postItem of posts"
+    *ngFor="let postItem of posts | filter:search"
     [post]="postItem"
     (onRemove)="removePost($event)"
   >

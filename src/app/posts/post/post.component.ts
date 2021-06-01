@@ -17,7 +17,7 @@ import {
   SimpleChanges,
   ViewEncapsulation
 } from "@angular/core";
-import {Post} from "../post-main/post-main.component"; // принимаем параметры из post-main.component
+import { Post } from "../post-main/post-main.component"; // принимаем параметры из post-main.component
 
 @Component({
   selector: 'app-post',
