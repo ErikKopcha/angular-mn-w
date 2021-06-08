@@ -16,6 +16,8 @@ import { StyleDirectives } from "./directives/style.directives";
 import { IfnotDirective } from "./directives/ifnot.directive";
 import { MultByPipe } from "./pipes/mult-by.pipe";
 import { FilterPipe } from "./pipes/filter.pipe";
+import { AppCounterService } from "./services/app-counter.service";
+import { BaseServiceComponent } from "./test-services/base-service.component";
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { FilterPipe } from "./pipes/filter.pipe";
     IfnotDirective,
     MultByPipe,
     FilterPipe,
+    BaseServiceComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -43,7 +46,7 @@ import { FilterPipe } from "./pipes/filter.pipe";
       { path: 'fetch-data', component: FetchDataComponent }
     ])
   ],
-  providers: [],
+  providers: [AppCounterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

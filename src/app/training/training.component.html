@@ -1,5 +1,45 @@
 <div class="container">
   <div class="mb-2">
+    <h2>Angular service</h2>
+
+    <app-base-service></app-base-service>
+
+    <hr>
+
+    <p>ROOT Service</p>
+
+    <div class="d-flex align-items-center">
+      <button
+        class="btn btn-success mr-2"
+        (click)="appCounterService.increase()"
+      >increase</button>
+      <button
+        class="btn btn-danger"
+        (click)="appCounterService.decrease()"
+      >decrease</button>
+      <p class="mb-0 ml-2">Counter: {{ appCounterService.counter }}</p>
+    </div>
+
+    <hr>
+
+    <p>LOCAL Service</p>
+
+    <div class="d-flex align-items-center">
+      <button
+        class="btn btn-success mr-2"
+        (click)="localCounterService.increase()"
+      >increase</button>
+      <button
+        class="btn btn-danger"
+        (click)="localCounterService.decrease()"
+      >decrease</button>
+      <p class="mb-0 ml-2">Counter: {{ localCounterService.counter }}</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="mb-2">
     <h2>Angular pipes</h2>
     <p>Custom pipe - {{ 10 | mult }} </p>
     <p>{{ pipeDate | date:'dd MMMM yyyy' }}</p>

@@ -1,9 +1,12 @@
 import { Component } from "@angular/core";
+import { AppCounterService } from "../services/app-counter.service";
+import { LocalCounterService } from "../services/local-counter.service";
 
 @Component({
   selector: 'app-training',
   templateUrl: './training.component.html',
-  styleUrls: ['./training.component.css']
+  styleUrls: ['./training.component.css'],
+  providers: [LocalCounterService]
 })
 
 export class TrainingComponent {
@@ -49,7 +52,7 @@ export class TrainingComponent {
   public pipeStr: string = 'hello world';
   public pipeDate: Date = new Date();
 
-  constructor() {
+  constructor(private appCounterService: AppCounterService, private localCounterService: LocalCounterService) {
     setTimeout(() => {
       this.src = 'https://habrastorage.org/getpro/habr/upload_files/cf6/a92/b88/cf6a92b888d18f955bca67dbdb504c45.png';
     }, 2000);
