@@ -4,31 +4,56 @@
 
     <div class="form-control">
       <label>Email</label>
-      <input class="form-control" type="text" placeholder="Email">
-      <div class="validation"></div>
+      <input formControlName="email"
+             autocomplete="off"
+             class="form-control"
+             type="text"
+             placeholder="Email">
+      <div
+        *ngIf="form.get('email').invalid && form.get('email').touched"
+        class="validation">
+        <small *ngIf="form.get('email').errors.required">Поле email не может быть пустым</small>
+        <small *ngIf="form.get('email').errors.email">Введите корректный email</small>
+      </div>
     </div>
 
     <div class="form-control">
       <label>Пароль</label>
-      <input class="form-control" type="password" placeholder="Пароль">
-      <div class="validation"></div>
+      <input
+        formControlName="password"
+        autocomplete="off"
+        class="form-control"
+        type="password"
+        placeholder="Пароль">
+      <div
+        *ngIf="form.get('password').invalid && form.get('password').touched"
+        class="validation">
+        <small *ngIf="form.get('password').errors.required">Пароль не может быть пустым</small>
+        <small *ngIf="form.get('password').errors.minlength">Пароль должен быть не меньше {{ form.get('password').errors.minlength.requiredLength }} символов. Сейчас {{ form.get('password').errors.minlength.actualLength }} символов</small>
+      </div>
     </div>
 
-    <div class="card">
+    <div
+      formGroupName="address"
+      class="card">
       <h2>Адрес</h2>
 
       <div class="form-control">
         <label>Страна</label>
 
-        <select class="form-control">
-          <option value="ru">Россия</option>
+        <select
+          formControlName="country"
+          class="form-control">
+          <option value="us">Америка</option>
           <option value="ua">Украина</option>
-          <option value="by">Беларусь</option>
+          <option value="an">Англия</option>
         </select>
       </div>
 
       <div class="form-control">
-        <input type="text">
+        <input
+          formControlName="city"
+          type="text" placeholder="город">
       </div>
 
       <button type="button" class="btn btn-primary">Выбрать столицу</button>
@@ -43,7 +68,10 @@
       <button type="button" class="btn btn-primary">Добавить умение</button>
     </div>
 
-    <button type="submit" class="btn btn-success">Отправить</button>
+    <button
+      [disabled]="form.invalid"
+      type="submit"
+      class="btn btn-success">Отправить</button>
 
   </form>
 </div>

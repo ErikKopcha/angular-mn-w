@@ -100,3 +100,11 @@ button {
   max-width: 300px;
   margin: 0 auto !important;
 }
+
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+input.ng-valid {
+  border-color: green;
+}
