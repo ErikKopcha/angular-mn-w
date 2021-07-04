@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from "@angular/router";
 
@@ -18,6 +18,7 @@ import { MultByPipe } from "./pipes/mult-by.pipe";
 import { FilterPipe } from "./pipes/filter.pipe";
 import { AppCounterService } from "./services/app-counter.service";
 import { BaseServiceComponent } from "./test-services/base-service.component";
+import { FormValidationComponent } from "./form-validation/form-validation.component";
 
 @NgModule({
   declarations: [
@@ -34,15 +35,18 @@ import { BaseServiceComponent } from "./test-services/base-service.component";
     MultByPipe,
     FilterPipe,
     BaseServiceComponent,
+    FormValidationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: WelcomeComponent, pathMatch: 'full' },
       { path: 'training', component: TrainingComponent },
       { path: 'post-main', component: PostMainComponent },
+      { path: 'form-validation', component: FormValidationComponent },
       { path: 'fetch-data', component: FetchDataComponent }
     ])
   ],
