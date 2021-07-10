@@ -7,7 +7,6 @@ import { RouterModule } from "@angular/router";
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { WelcomeComponent } from "./welcome/welcome.component";
-import { FetchDataComponent } from "./fetch-data/fetch-data.component";
 import { TrainingComponent } from "./training/training.component";
 import { PostMainComponent } from "./posts/post-main/post-main.component";
 import { PostComponent } from "./posts/post/post.component";
@@ -25,7 +24,6 @@ import { FormValidationComponent } from "./form-validation/form-validation.compo
     AppComponent,
     NavMenuComponent,
     WelcomeComponent,
-    FetchDataComponent,
     TrainingComponent,
     PostMainComponent,
     PostComponent,
@@ -47,7 +45,6 @@ import { FormValidationComponent } from "./form-validation/form-validation.compo
       { path: 'training', component: TrainingComponent },
       { path: 'post-main', component: PostMainComponent },
       { path: 'form-validation', component: FormValidationComponent },
-      { path: 'fetch-data', component: FetchDataComponent }
     ])
   ],
   providers: [AppCounterService],
