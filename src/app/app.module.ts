@@ -18,6 +18,7 @@ import { FilterPipe } from "./pipes/filter.pipe";
 import { AppCounterService } from "./services/app-counter.service";
 import { BaseServiceComponent } from "./test-services/base-service.component";
 import { FormValidationComponent } from "./form-validation/form-validation.component";
+import {SwitchComponent} from "./switch/switch.component";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FormValidationComponent } from "./form-validation/form-validation.compo
     MultByPipe,
     FilterPipe,
     BaseServiceComponent,
-    FormValidationComponent
+    FormValidationComponent,
+    SwitchComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

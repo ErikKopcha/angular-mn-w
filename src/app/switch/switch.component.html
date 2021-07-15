@@ -1,0 +1,10 @@
+<div>
+  <button
+    [class.active]="state"
+    (click)="setState(true)"
+    class="btn btn-danger no-r-r">on</button>
+  <button
+    [class.active]="!state"
+    (click)="setState(false)"
+    class="btn btn-danger no-l-r">off</button>
+</div>

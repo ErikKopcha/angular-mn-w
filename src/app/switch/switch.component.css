@@ -1,0 +1,13 @@
+.no-r-r {
+  border-top-right-radius: unset !important;
+  border-bottom-right-radius: unset !important;
+}
+
+.no-l-r {
+  border-top-left-radius: unset !important;
+  border-bottom-left-radius: unset !important;
+}
+
+button.active {
+  background-color: green !important;
+}
