@@ -34,15 +34,20 @@
 
   <hr>
 
-  <div *ngIf="!loading; else loader">
-    <div *ngIf="todos.length; else emptyBlock">
-      <div
-        *ngFor="let todo of todos"
-        [class.completed]="todo.completed"
-        class="card p-2 mb-1">
-        <p class="d-flex justify-content-between align-items-center p-2 mb-0">
-          <span>{{todo.title | titlecase}}</span>
-          <span>
+  <p
+    *ngIf="error; else todosList"
+    class="c-red">{{error}}</p>
+
+  <ng-template #todosList>
+    <div *ngIf="!loading; else loader">
+      <div *ngIf="todos.length; else emptyBlock">
+        <div
+          *ngFor="let todo of todos"
+          [class.completed]="todo.completed"
+          class="card p-2 mb-1">
+          <p class="d-flex justify-content-between align-items-center p-2 mb-0">
+            <span>{{todo.title | titlecase}}</span>
+            <span>
         <button
           (click)="deleteTodo(todo.id)"
           [class.td-l]="todo.completed"
@@ -58,20 +63,21 @@
           [disabled]="doneTrigger"
           class="btn btn-success">Done</button>
       </span>
-        </p>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <ng-template #loader>
-    <div
-    class="d-flex w-100 justify-content-center align-items-center"
-    >
-      <img width="300" src="assets/loader/giphy.gif" alt="loader">
-    </div>
-  </ng-template>
+    <ng-template #loader>
+      <div
+        class="d-flex w-100 justify-content-center align-items-center"
+      >
+        <img width="300" src="assets/loader/giphy.gif" alt="loader">
+      </div>
+    </ng-template>
 
-  <ng-template #emptyBlock>
-    Записей не найдено
+    <ng-template #emptyBlock>
+      Записей не найдено
+    </ng-template>
   </ng-template>
 </div>
