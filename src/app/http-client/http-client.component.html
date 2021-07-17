@@ -2,23 +2,76 @@
   <h2>Angular HttpClient</h2>
 
   <div class="card p-2">
-    <input class="form-control" type="text" placeholder="name">
-
-    <div class="d-flex mt-2">
-      <button class="btn btn-info mr-2">Add</button>
-      <button class="btn btn-primary">Upload</button>
-    </div>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="addTodo()">
+      <input
+        [class.error-inp]="form.get('todoTitle').invalid && form.get('todoTitle').touched"
+        [disabled]="loading"
+        formControlName="todoTitle"
+        autocomplete="off"
+        class="form-control"
+        type="text"
+        placeholder="name">
+      <div
+        *ngIf="form.get('todoTitle').invalid && form.get('todoTitle').touched"
+        class="validation">
+        <small *ngIf="form.get('todoTitle').errors.required">Введите название</small>
+        <small *ngIf="form.get('todoTitle').errors.minlength">Название должно быть не меньше {{ form.get('todoTitle').errors.minlength.requiredLength }} символов. Сейчас {{ form.get('todoTitle').errors.minlength.actualLength }} символов</small>
+      </div>
+      <div class="d-flex mt-2">
+        <button
+          [disabled]="form.invalid || form.pending || loading"
+          type="submit"
+          class="btn btn-info mr-2">Add</button>
+        <button
+          (click)="getTodos()"
+          [disabled]="loading"
+          class="btn btn-primary">Refresh</button>
+      </div>
+    </form>
   </div>
 
   <hr>
 
-  <div class="card p-2">
-    <p class="d-flex justify-content-between align-items-center p-2 mb-0">
-      <span class="completed">Name</span>
-      <span>
-        <button class="btn btn-danger mr-2">Delete</button>
-        <button class="btn btn-success">Done</button>
+  <div *ngIf="!loading; else loader">
+    <div *ngIf="todos.length; else emptyBlock">
+      <div
+        *ngFor="let todo of todos"
+        [class.completed]="todo.completed"
+        class="card p-2 mb-1">
+        <p class="d-flex justify-content-between align-items-center p-2 mb-0">
+          <span>{{todo.title | titlecase}}</span>
+          <span>
+        <button
+          (click)="deleteTodo(todo.id)"
+          [class.td-l]="todo.completed"
+          [class.btn-info]="todo.completed"
+          [class.btn-danger]="!todo.completed"
+          [disabled]="deleteTrigger"
+          class="btn mr-2">Delete</button>
+        <button
+          (click)="updateTodo(todo.id, !todo.completed)"
+          [class.btn-success]="!todo.completed"
+          [class.btn-info]="todo.completed"
+          [class.td-l]="todo.completed"
+          [disabled]="doneTrigger"
+          class="btn btn-success">Done</button>
       </span>
-    </p>
+        </p>
+      </div>
+    </div>
   </div>
+
+  <ng-template #loader>
+    <div
+    class="d-flex w-100 justify-content-center align-items-center"
+    >
+      <img width="300" src="assets/loader/giphy.gif" alt="loader">
+    </div>
+  </ng-template>
+
+  <ng-template #emptyBlock>
+    Записей не найдено
+  </ng-template>
 </div>

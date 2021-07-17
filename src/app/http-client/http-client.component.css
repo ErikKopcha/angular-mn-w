@@ -1,0 +1,16 @@
+.completed {
+  background-color: rgba(0,0,0,0.2);
+  text-decoration: line-through;
+}
+
+.td-l {
+  text-decoration: line-through;
+}
+
+.validation {
+  color: red;
+}
+
+.error-inp {
+  border-color: red;
+}

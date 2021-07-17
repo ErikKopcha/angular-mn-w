@@ -37,13 +37,14 @@ import {HttpClientComponent} from "./http-client/http-client.component";
     BaseServiceComponent,
     FormValidationComponent,
     SwitchComponent,
-    HttpClientComponent
+    HttpClientComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: WelcomeComponent, pathMatch: 'full' },
       { path: 'training', component: TrainingComponent },
