@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, Provider} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RouterModule} from "@angular/router";
 
 import {AppComponent} from './app.component';
@@ -20,6 +20,13 @@ import {BaseServiceComponent} from "./test-services/base-service.component";
 import {FormValidationComponent} from "./form-validation/form-validation.component";
 import {SwitchComponent} from "./switch/switch.component";
 import {HttpClientComponent} from "./http-client/http-client.component";
+import {AuthInterseptop} from "./interseptor/auth.interseptop";
+
+const INTERSEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterseptop,
+  multi: true
+};
 
 @NgModule({
   declarations: [
@@ -53,7 +60,7 @@ import {HttpClientComponent} from "./http-client/http-client.component";
       { path: 'http-client', component: HttpClientComponent },
     ])
   ],
-  providers: [AppCounterService],
+  providers: [AppCounterService, INTERSEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {delay} from "rxjs/operators";
 
 export interface Todo {
   completed: boolean,
@@ -20,7 +19,13 @@ export class TodosService {
   }
 
   getTodos() {
-    return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    let params = new HttpParams();
+    params = params.append('_limit', '5');
+    params = params.append('_custom', 'any');
+
+    return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos', {
+      params
+    })
   }
 
   deleteTodo(id: number) {
