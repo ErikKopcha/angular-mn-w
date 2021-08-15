@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { AppCounterService } from "../services/app-counter.service";
 import { LocalCounterService } from "../services/local-counter.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-training',
@@ -52,7 +53,11 @@ export class TrainingComponent {
   public pipeStr: string = 'hello world';
   public pipeDate: Date = new Date();
 
-  constructor(private appCounterService: AppCounterService, private localCounterService: LocalCounterService) {
+  constructor(
+    private router: Router,
+    private appCounterService: AppCounterService,
+    private localCounterService: LocalCounterService
+  ) {
     setTimeout(() => {
       this.src = 'https://habrastorage.org/getpro/habr/upload_files/cf6/a92/b88/cf6a92b888d18f955bca67dbdb504c45.png';
     }, 2000);
@@ -69,5 +74,9 @@ export class TrainingComponent {
   }
   public pushHandler() {
     this.pushCount++;
+  }
+
+  public goToHttpPage() {
+    this.router.navigate(['/http-client'])
   }
 }

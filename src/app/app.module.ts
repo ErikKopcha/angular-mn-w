@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, Provider} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {RouterModule} from "@angular/router";
 
 import {AppComponent} from './app.component';
 import {NavMenuComponent} from "./nav-menu/nav-menu.component";
@@ -21,6 +20,8 @@ import {FormValidationComponent} from "./form-validation/form-validation.compone
 import {SwitchComponent} from "./switch/switch.component";
 import {HttpClientComponent} from "./http-client/http-client.component";
 import {AuthInterseptop} from "./interseptor/auth.interseptop";
+import {AppRouterModule} from "./app-router.module";
+import {PostDetailComponent} from "./posts/post-detail/post-detail.component";
 
 const INTERSEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -45,6 +46,7 @@ const INTERSEPTOR_PROVIDER: Provider = {
     FormValidationComponent,
     SwitchComponent,
     HttpClientComponent,
+    PostDetailComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -52,13 +54,7 @@ const INTERSEPTOR_PROVIDER: Provider = {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: '', component: WelcomeComponent, pathMatch: 'full' },
-      { path: 'training', component: TrainingComponent },
-      { path: 'post-main', component: PostMainComponent },
-      { path: 'form-validation', component: FormValidationComponent },
-      { path: 'http-client', component: HttpClientComponent },
-    ])
+    AppRouterModule,
   ],
   providers: [AppCounterService, INTERSEPTOR_PROVIDER],
   bootstrap: [AppComponent]

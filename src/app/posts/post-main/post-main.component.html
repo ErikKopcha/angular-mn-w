@@ -1,6 +1,7 @@
 <div class="container">
   <app-post-form
     (onAdd)="updatePosts($event)"
+    (showIds)="showIds($event)"
   ></app-post-form>
 
   <hr />
@@ -8,9 +9,10 @@
   <hr />
 
   <app-post
-    *ngFor="let postItem of posts | filter:search"
-    [post]="postItem"
+    *ngFor="let postItem of posts.posts | filter:search"
     (onRemove)="removePost($event)"
+    [post]="postItem"
+    [showIds]="isShowIds"
   >
 
     <div #info>

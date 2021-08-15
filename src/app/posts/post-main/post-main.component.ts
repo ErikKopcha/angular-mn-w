@@ -1,11 +1,5 @@
 import {Component} from "@angular/core";
-
-// интерфейс для передачи параметров
-export interface Post {
-  title: string
-  text: string
-  id?: number
-}
+import {Post, PostService} from "../../services/post.service";
 
 @Component({
   selector: 'post-main',
@@ -15,21 +9,22 @@ export interface Post {
 
 export class PostMainComponent {
   search: string = '';
+  isShowIds: boolean = false;
 
-  constructor() {}
-
-  public posts: Post[] = [
-    { title: 'Learn Angular and Components', text: 'qwerty qwerty qwerty qwerty qwerty', id: 1 },
-    { title: 'Learn TypeScript', text: 'zxczxc zxczxc zxczxc zxczxc zxczxc ', id: 2 },
-    { title: 'Learn React', text: '123 12 3123 123  ', id: 3 }
-  ];
+  constructor(
+      public posts: PostService
+  ) {}
 
   public updatePosts(post: Post) {
-    this.posts.unshift(post);
+    this.posts.posts.unshift(post);
   }
 
   public removePost(id: number) {
-    this.posts = this.posts.filter(post => post.id !== id);
+    this.posts.posts = this.posts.posts.filter(post => post.id !== id);
     console.log(`id to remove`, id);
+  }
+
+  public showIds($event: any) {
+    this.isShowIds = !this.isShowIds;
   }
 }
