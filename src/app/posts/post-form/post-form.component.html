@@ -25,7 +25,11 @@
       class="btn btn-outline-warning mt-2 mr-2">Focus title</button>
     <button
       (click)="toggleIds()"
-      class="btn btn-outline-primary mt-2">Show ID's</button>
+      class="btn btn-outline-primary mt-2 mr-2">Show ID's</button>
+    <button
+      [routerLink]="['/post-main']"
+      [queryParams]="{showIds: true}"
+      class="btn btn-outline-primary mt-2">sQuery show ID's</button>
   </div>
 
 </div>

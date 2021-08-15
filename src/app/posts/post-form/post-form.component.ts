@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Output, ViewChild} from "@angular/core";
-import {Post, PostService} from "../../services/post.service";
+import {Post} from "../../services/post.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-post-form',
@@ -15,6 +16,11 @@ export class PostFormComponent {
 
   public title: string = '';
   public text: string = '';
+
+  constructor(
+    private route: Router
+  ) {}
+
 
   public onResetForm() {
     this.title = '';
@@ -50,4 +56,12 @@ export class PostFormComponent {
   public toggleIds() {
     this.showIds.emit();
   }
+
+  // public routeToIds() {
+  //   this.route.navigate(['/post-main'], {
+  //     queryParams: {
+  //       showIds: true
+  //     }
+  //   })
+  // }
 }

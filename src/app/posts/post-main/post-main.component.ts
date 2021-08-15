@@ -1,5 +1,6 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Post, PostService} from "../../services/post.service";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 @Component({
   selector: 'post-main',
@@ -7,13 +8,25 @@ import {Post, PostService} from "../../services/post.service";
   styleUrls: ['./post-main.component.css']
 })
 
-export class PostMainComponent {
-  search: string = '';
-  isShowIds: boolean = false;
+export class PostMainComponent implements OnInit {
+  public search: string = '';
+  public isShowIds: boolean = false;
 
   constructor(
-      public posts: PostService
+      public posts: PostService,
+      private route: Router,
+      private routeParams: ActivatedRoute
   ) {}
+
+  ngOnInit(): void {
+    this.routeParams.queryParams.subscribe((params: Params) => {
+      this.isShowIds = !!params.showIds;
+    });
+  }
+
+  public moveToPosts() {
+    this.route.navigate(['/post-main']);
+  }
 
   public updatePosts(post: Post) {
     this.posts.posts.unshift(post);
