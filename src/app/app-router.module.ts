@@ -8,6 +8,7 @@ import {HttpClientComponent} from "./http-client/http-client.component";
 import {PostDetailComponent} from "./posts/post-detail/post-detail.component";
 import {AboutComponent} from "./about/about.component";
 import {AboutSubpageComponent} from "./about-subpage/about-subpage.component";
+import {ErrorPageComponent} from "./error-page/error-page.component";
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent, pathMatch: 'full' },
@@ -24,10 +25,13 @@ const routes: Routes = [
       component: AboutSubpageComponent
     }]
   },
+  { path: 'error', component: ErrorPageComponent },
+  { path: '**', redirectTo: '/error' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRouterModule { }
