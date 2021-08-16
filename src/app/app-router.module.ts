@@ -6,6 +6,8 @@ import {PostMainComponent} from "./posts/post-main/post-main.component";
 import {FormValidationComponent} from "./form-validation/form-validation.component";
 import {HttpClientComponent} from "./http-client/http-client.component";
 import {PostDetailComponent} from "./posts/post-detail/post-detail.component";
+import {AboutComponent} from "./about/about.component";
+import {AboutSubpageComponent} from "./about-subpage/about-subpage.component";
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent, pathMatch: 'full' },
@@ -14,6 +16,14 @@ const routes: Routes = [
   { path: 'post-main/:id', component: PostDetailComponent },
   { path: 'form-validation', component: FormValidationComponent },
   { path: 'http-client', component: HttpClientComponent },
+  {
+    path: 'about',
+    component: AboutComponent,
+    children: [{
+      path: 'subpage',
+      component: AboutSubpageComponent
+    }]
+  },
 ];
 
 @NgModule({

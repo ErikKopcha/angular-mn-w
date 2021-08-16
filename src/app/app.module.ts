@@ -22,6 +22,8 @@ import {HttpClientComponent} from "./http-client/http-client.component";
 import {AuthInterseptop} from "./interseptor/auth.interseptop";
 import {AppRouterModule} from "./app-router.module";
 import {PostDetailComponent} from "./posts/post-detail/post-detail.component";
+import {AboutComponent} from "./about/about.component";
+import {AboutSubpageComponent} from "./about-subpage/about-subpage.component";
 
 const INTERSEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -47,6 +49,8 @@ const INTERSEPTOR_PROVIDER: Provider = {
     SwitchComponent,
     HttpClientComponent,
     PostDetailComponent,
+    AboutComponent,
+    AboutSubpageComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
