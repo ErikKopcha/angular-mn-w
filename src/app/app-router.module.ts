@@ -11,12 +11,20 @@ import {AboutSubpageComponent} from "./about-subpage/about-subpage.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import {AuthGuard} from "./auth.guard";
 import {NeedLoginComponent} from "./need-login/need-login.component";
+import {PostResolver} from "./post.resolver";
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent, pathMatch: 'full' },
   { path: 'training', component: TrainingComponent },
   { path: 'post-main', component: PostMainComponent, canActivate: [AuthGuard] },
-  { path: 'post-main/:id', component: PostDetailComponent, canActivate: [AuthGuard] },
+  {
+    path: 'post-main/:id',
+    component: PostDetailComponent,
+    canActivate: [AuthGuard],
+    resolve: {
+      post: PostResolver
+    }
+  },
   { path: 'form-validation', component: FormValidationComponent, canActivate: [AuthGuard] },
   { path: 'http-client', component: HttpClientComponent, canActivate: [AuthGuard] },
   {

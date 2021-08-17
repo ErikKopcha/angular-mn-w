@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {Post, PostService} from "../../services/post.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Post} from "../../services/post.service";
 
 @Component({
   selector: 'post-detail',
@@ -14,15 +14,18 @@ export class PostDetailComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private routeParams: ActivatedRoute,
-    private postService: PostService
+    private routeParams: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.routeParams.params.subscribe((params: Params) => {
-      this.postInfo = this.postService.getById(+params.id);
-      console.log('post info: ', this.postInfo);
+    this.routeParams.data.subscribe(data => {
+      this.postInfo = data.post
     });
+
+    // this.routeParams.params.subscribe((params: Params) => {
+    //   this.postInfo = this.postService.getById(+params.id);
+    //   console.log('post info: ', this.postInfo);
+    // });
   }
 
   public moveToPosts() {
