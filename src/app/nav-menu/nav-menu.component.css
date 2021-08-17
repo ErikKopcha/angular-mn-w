@@ -162,3 +162,8 @@ html {
   max-width: 1140px !important;
   width: 100%;
 }
+
+.auth {
+  position: absolute;
+  right: 20px;
+}

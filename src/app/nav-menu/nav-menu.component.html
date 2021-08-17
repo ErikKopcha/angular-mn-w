@@ -18,6 +18,17 @@
             <li><a routerLinkActive="active" class="card" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/form-validation']">From Validation</a></li>
             <li><a routerLinkActive="active" class="card" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/http-client']">HTTP Client</a></li>
             <li><a routerLinkActive="active" class="card" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/about']">About (subpage)</a></li>
+
+            <li
+              *ngIf="!auth.isAuth"
+            ><a
+              (click)="auth.login()"
+              class="btn btn-outline-warning auth" href="javascript:;">Login</a></li>
+            <li
+              *ngIf="auth.isAuth"
+            ><a
+              (click)="auth.logout()"
+              class="btn btn-dark auth" href="javascript:;">Logout</a></li>
           </ul>
         </nav>
       </div>

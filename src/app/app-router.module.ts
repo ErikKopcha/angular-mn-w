@@ -9,23 +9,28 @@ import {PostDetailComponent} from "./posts/post-detail/post-detail.component";
 import {AboutComponent} from "./about/about.component";
 import {AboutSubpageComponent} from "./about-subpage/about-subpage.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
+import {AuthGuard} from "./auth.guard";
+import {NeedLoginComponent} from "./need-login/need-login.component";
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent, pathMatch: 'full' },
   { path: 'training', component: TrainingComponent },
-  { path: 'post-main', component: PostMainComponent },
-  { path: 'post-main/:id', component: PostDetailComponent },
-  { path: 'form-validation', component: FormValidationComponent },
-  { path: 'http-client', component: HttpClientComponent },
+  { path: 'post-main', component: PostMainComponent, canActivate: [AuthGuard] },
+  { path: 'post-main/:id', component: PostDetailComponent, canActivate: [AuthGuard] },
+  { path: 'form-validation', component: FormValidationComponent, canActivate: [AuthGuard] },
+  { path: 'http-client', component: HttpClientComponent, canActivate: [AuthGuard] },
   {
     path: 'about',
     component: AboutComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [{
       path: 'subpage',
       component: AboutSubpageComponent
     }]
   },
   { path: 'error', component: ErrorPageComponent },
+  { path: 'need-login', component: NeedLoginComponent },
   { path: '**', redirectTo: '/error' }
 ];
 
