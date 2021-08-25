@@ -5,11 +5,11 @@
         <h1>{{ title }}</h1>
     </nav>
 
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem itaque eligendi ullam eum sit ipsam asperiores? Similique, rerum! Qui sunt corrupti temporibus eos ad velit magni? Adipisci non omnis beatae.</p>
+    <p>{{ description }}</p>
 
     <button 
         (click)="closeModal($event)"
         class="btn m-0-a">
-        Confirm
+        {{ btnText }}
     </button>
 </div>

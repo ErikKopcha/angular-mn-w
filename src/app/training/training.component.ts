@@ -93,6 +93,8 @@ export class TrainingComponent {
     
     const component = this.refDir.containerRef.createComponent(modalFactory);
     component.instance.title = 'Dynamic title';
+    component.instance.btnText = 'Dynamic btn text';
+    component.instance.description = 'Dynamic description';
     component.instance.close.subscribe(() => { this.refDir.containerRef.clear(); });
   }
 }
