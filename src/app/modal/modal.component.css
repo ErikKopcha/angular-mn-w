@@ -1,0 +1,27 @@
+.backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+    display: block;
+    padding: 1rem;
+    background: #fff;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    max-height: 50vh;
+    min-height: 300px;
+}
+
+.m-0-a {
+    display: block;
+    margin: 0 auto;
+}

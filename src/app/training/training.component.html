@@ -1,5 +1,11 @@
 <div class="container">
   <div class="mb-2">
+    <button (click)="modal = true" class="btn btn-primary">Show modal</button>
+  </div>
+
+  <hr>
+
+  <div class="mb-2">
 
     <button
       (click)="goToHttpPage()"
@@ -215,3 +221,9 @@
   </div>
 
 </div>
+
+<app-modal 
+  *ngIf="modal" 
+  title="Modal Window" 
+  (close)="modal = false">
+</app-modal>

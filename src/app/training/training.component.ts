@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 })
 
 export class TrainingComponent {
+  public modal: boolean = false;
   public isVisible = true;
   public text: string = 'Count';
   public pushCount: number = 0;
