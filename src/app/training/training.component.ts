@@ -1,7 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, ComponentFactoryResolver, ViewChild } from "@angular/core";
 import { AppCounterService } from "../services/app-counter.service";
 import { LocalCounterService } from "../services/local-counter.service";
 import { Router } from "@angular/router";
+import { ModalComponent } from "../modal/modal.component";
+import { RefDirective } from "../ref.directive";
 
 @Component({
   selector: 'app-training',
@@ -11,7 +13,7 @@ import { Router } from "@angular/router";
 })
 
 export class TrainingComponent {
-  public modal: boolean = false;
+  // public modal: boolean = false;
   public isVisible = true;
   public text: string = 'Count';
   public pushCount: number = 0;
@@ -54,7 +56,10 @@ export class TrainingComponent {
   public pipeStr: string = 'hello world';
   public pipeDate: Date = new Date();
 
+  @ViewChild(RefDirective, { static: false }) refDir: RefDirective;
+
   constructor(
+    private resolver: ComponentFactoryResolver,
     private router: Router,
     private appCounterService: AppCounterService,
     private localCounterService: LocalCounterService
@@ -79,5 +84,15 @@ export class TrainingComponent {
 
   public goToHttpPage() {
     this.router.navigate(['/http-client'])
+  }
+
+  public showModal() {
+    const modalFactory = this.resolver.resolveComponentFactory(ModalComponent);
+
+    this.refDir.containerRef.clear();
+    
+    const component = this.refDir.containerRef.createComponent(modalFactory);
+    component.instance.title = 'Dynamic title';
+    component.instance.close.subscribe(() => { this.refDir.containerRef.clear(); });
   }
 }

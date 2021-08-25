@@ -27,6 +27,7 @@ import {AboutSubpageComponent} from "./about-subpage/about-subpage.component";
 import {ErrorPageComponent} from "./error-page/error-page.component";
 import {NeedLoginComponent} from "./need-login/need-login.component";
 import {ModalComponent} from "./modal/modal.component";
+import { RefDirective } from './ref.directive';
 
 const INTERSEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -56,7 +57,8 @@ const INTERSEPTOR_PROVIDER: Provider = {
     AboutSubpageComponent,
     ErrorPageComponent,
     NeedLoginComponent,
-    ModalComponent
+    ModalComponent,
+    RefDirective
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
