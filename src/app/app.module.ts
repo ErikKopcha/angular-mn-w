@@ -28,6 +28,8 @@ import {ErrorPageComponent} from "./error-page/error-page.component";
 import {NeedLoginComponent} from "./need-login/need-login.component";
 import {ModalComponent} from "./modal/modal.component";
 import { RefDirective } from './ref.directive';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const INTERSEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -67,6 +69,7 @@ const INTERSEPTOR_PROVIDER: Provider = {
     ReactiveFormsModule,
     HttpClientModule,
     AppRouterModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [AppCounterService, INTERSEPTOR_PROVIDER],
   bootstrap: [AppComponent]
