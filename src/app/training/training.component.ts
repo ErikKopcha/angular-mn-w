@@ -4,6 +4,7 @@ import { LocalCounterService } from "../services/local-counter.service";
 import { Router } from "@angular/router";
 import { ModalComponent } from "../modal/modal.component";
 import { RefDirective } from "../ref.directive";
+import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-training',
@@ -59,11 +60,19 @@ export class TrainingComponent {
   @ViewChild(RefDirective, { static: false }) refDir: RefDirective;
 
   constructor(
+    private titlePage: Title,
+    private meta: Meta,
     private resolver: ComponentFactoryResolver,
     private router: Router,
     private appCounterService: AppCounterService,
     private localCounterService: LocalCounterService
   ) {
+    titlePage.setTitle('Training page');
+    meta.addTags([
+      { name: 'keywords', content: 'angular, google' },
+      { name: 'description', content: 'this is app component' }
+    ]);
+
     setTimeout(() => {
       this.src = 'https://habrastorage.org/getpro/habr/upload_files/cf6/a92/b88/cf6a92b888d18f955bca67dbdb504c45.png';
     }, 2000);
