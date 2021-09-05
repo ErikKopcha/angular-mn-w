@@ -31,6 +31,9 @@ import { RefDirective } from './ref.directive';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { CounterComponent } from './counter/counter.component';
+import { PostsComponentTest } from './integration-tests/posts/posts.component';
+import { CounterComponentTest } from './integration-tests/counter/counter.component';
+import { RoutingComponent } from './routing/routing.component';
 
 const INTERSEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -62,7 +65,10 @@ const INTERSEPTOR_PROVIDER: Provider = {
     NeedLoginComponent,
     ModalComponent,
     RefDirective,
-    CounterComponent
+    CounterComponent,
+    CounterComponentTest,
+    PostsComponentTest,
+    RoutingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
