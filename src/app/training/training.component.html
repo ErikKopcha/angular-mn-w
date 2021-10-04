@@ -1,29 +1,35 @@
 <div class="container">
   <div class="mb-2">
+    <h2>Animation</h2>
+    <app-animation></app-animation>
+  </div>
+
+  <hr />
+
+  <div class="mb-2">
     <button (click)="showModal()" class="btn btn-primary">Show modal</button>
   </div>
 
   <ng-template appRef></ng-template>
 
-  <hr>
+  <hr />
 
   <div class="mb-2">
-
-    <button
-      (click)="goToHttpPage()"
-      class="btn btn-info mb-2">Go to HTTP page</button>
+    <button (click)="goToHttpPage()" class="btn btn-info mb-2">
+      Go to HTTP page
+    </button>
 
     <h2>Angular custom ngModule...</h2>
 
     <app-switch></app-switch>
 
-    <hr>
+    <hr />
 
     <h2>Angular service</h2>
 
     <app-base-service></app-base-service>
 
-    <hr>
+    <hr />
 
     <p>ROOT Service</p>
 
@@ -31,15 +37,16 @@
       <button
         class="btn btn-success mr-2"
         (click)="appCounterService.increase()"
-      >increase</button>
-      <button
-        class="btn btn-danger"
-        (click)="appCounterService.decrease()"
-      >decrease</button>
+      >
+        increase
+      </button>
+      <button class="btn btn-danger" (click)="appCounterService.decrease()">
+        decrease
+      </button>
       <p class="mb-0 ml-2">Counter: {{ appCounterService.counter }}</p>
     </div>
 
-    <hr>
+    <hr />
 
     <p>LOCAL Service</p>
 
@@ -47,127 +54,154 @@
       <button
         class="btn btn-success mr-2"
         (click)="localCounterService.increase()"
-      >increase</button>
-      <button
-        class="btn btn-danger"
-        (click)="localCounterService.decrease()"
-      >decrease</button>
+      >
+        increase
+      </button>
+      <button class="btn btn-danger" (click)="localCounterService.decrease()">
+        decrease
+      </button>
       <p class="mb-0 ml-2">Counter: {{ localCounterService.counter }}</p>
     </div>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="mb-2">
     <h2>Angular pipes</h2>
-    <p>Custom pipe - {{ 10 | mult }} </p>
-    <p>{{ pipeDate | date:'dd MMMM yyyy' }}</p>
-    <p>{{ pipeStr | slice:-5 | titlecase }}</p>
+    <p>Custom pipe - {{ 10 | mult }}</p>
+    <p>{{ pipeDate | date: "dd MMMM yyyy" }}</p>
+    <p>{{ pipeStr | slice: -5 | titlecase }}</p>
     <p>{{ pipeStr | uppercase }}</p>
     <p>{{ pipeStr | titlecase }}</p>
-    <p>{{ pipesNum | number: '1.1-5' }}</p>
-    <p>{{ pipesNum | number: '3.1-5' }}</p>
-    <p>{{ 2001 | number: '3.1-2' }}</p>
+    <p>{{ pipesNum | number: "1.1-5" }}</p>
+    <p>{{ pipesNum | number: "3.1-5" }}</p>
+    <p>{{ 2001 | number: "3.1-2" }}</p>
   </div>
 
   <div class="mb-2">
-
-    <button
-      (click)="isVisible = !isVisible"
-      class="btn btn-outline-warning">Toggle visible</button>
+    <button (click)="isVisible = !isVisible" class="btn btn-outline-warning">
+      Toggle visible
+    </button>
     <p *appIfNot="!isVisible">*appIfNot = in visible</p>
     <p *ngIf="isVisible">in visible</p>
 
-    <p [appStyle]="'green'" [dStyles]="{border: '1px solid blue', fontWeight: 'bold', borderRadius: '5xp'}"><span>Directive attr</span></p>
+    <p
+      [appStyle]="'green'"
+      [dStyles]="{
+        border: '1px solid blue',
+        fontWeight: 'bold',
+        borderRadius: '5xp'
+      }"
+    >
+      <span>Directive attr</span>
+    </p>
   </div>
 
   <div class="d-flex align-items-center w-100 mt-5">
     <span class="text-info">{{ text }}&nbsp;-&nbsp;</span>
-    <button class="btn btn-primary btn-sm py-0" (click)="pushHandler()">Push {{ pushCount }}</button>
+    <button class="btn btn-primary btn-sm py-0" (click)="pushHandler()">
+      Push {{ pushCount }}
+    </button>
   </div>
 
   <div class="mb-4">
     <p>{{ title }}</p>
     <p>{{ arr }}</p>
-    <img width="100" height="" [src]="src" alt="">
+    <img width="100" height="" [src]="src" alt="" />
   </div>
 
-  <hr>
+  <hr />
 
   <div class="mb-2">
-    <input type="text" (keyup)="checkInputResult($event)"> - <span>keyup event</span>
-  </div>
-
-  <div class="mb-2">
-    <input type="text" (keyup.enter)="checkInputResult($event)"> - <span>keyup.enter event</span>
+    <input type="text" (keyup)="checkInputResult($event)" /> -
+    <span>keyup event</span>
   </div>
 
   <div class="mb-2">
-    <input type="text" (blur)="onBlur(myInput.value)" #myInput> - <span>blur event</span>
+    <input type="text" (keyup.enter)="checkInputResult($event)" /> -
+    <span>keyup.enter event</span>
   </div>
 
-  <p><strong>{{ inputResult }}</strong></p>
+  <div class="mb-2">
+    <input type="text" (blur)="onBlur(myInput.value)" #myInput /> -
+    <span>blur event</span>
+  </div>
 
-  <hr>
+  <p>
+    <strong>{{ inputResult }}</strong>
+  </p>
+
+  <hr />
 
   <div class="my-4">
     <span>2 way binding</span> -
-    <input type="text"
-           [value]="twoWayBindingTitle"
-           (input)="onInput($event)"
-    > -
+    <input type="text" [value]="twoWayBindingTitle" (input)="onInput($event)" />
+    -
     <span>{{ twoWayBindingTitle }}</span>
   </div>
 
   <div class="my-4">
     <span>2 way binding GOOD (FormsModule)</span> -
-    <input type="text"
-           [(ngModel)]="twoWayBindingTitleTwo"
-    > -
+    <input type="text" [(ngModel)]="twoWayBindingTitleTwo" /> -
     <span>{{ twoWayBindingTitleTwo }}</span>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="d-flex">
-    <div class="mt-2 mr-2" [ngStyle]="{
-      width: '200px',
-      height: '200px',
-      borderRadius: '10px',
-      border: '1px solid black',
-      padding: '10px',
-      background: bgToggle ? 'red' : 'blue'
-     }">
+    <div
+      class="mt-2 mr-2"
+      [ngStyle]="{
+        width: '200px',
+        height: '200px',
+        borderRadius: '10px',
+        border: '1px solid black',
+        padding: '10px',
+        background: bgToggle ? 'red' : 'blue'
+      }"
+    >
       <span>[ngStyle]</span>
-      <button class="mt-5" (click)="bgToggle = !bgToggle">Toggle background</button>
+      <button class="mt-5" (click)="bgToggle = !bgToggle">
+        Toggle background
+      </button>
     </div>
 
-    <div class="mt-2 ng-block-class"
-         [ngClass]="{
-          'red-bg': !toggleClass,
-          'blue-bg': toggleClass
-         }"
+    <div
+      class="mt-2 ng-block-class"
+      [ngClass]="{
+        'red-bg': !toggleClass,
+        'blue-bg': toggleClass
+      }"
     >
       <span>[ngClass] binding</span>
-      <button class="mt-5" (click)="toggleClass = !toggleClass">Toggle class</button>
+      <button class="mt-5" (click)="toggleClass = !toggleClass">
+        Toggle class
+      </button>
     </div>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="mt-2">
-      <span
-        [class.blue-color]="!classRed"
-        [class.red-color]="classRed"
-      >class binding [class.*-color]="!class*"]</span> -
-    <button class="mt-5" (click)="classRed = !classRed">Toggle class red</button>
+    <span [class.blue-color]="!classRed" [class.red-color]="classRed"
+      >class binding [class.*-color]="!class*"]</span
+    >
+    -
+    <button class="mt-5" (click)="classRed = !classRed">
+      Toggle class red
+    </button>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="mt-2">
     <h2>[ngIf] / else</h2>
-    <button class="btn btn-sm btn-info py-0" (click)="toggleParagraph = !toggleParagraph">Toggle paragrath</button>
+    <button
+      class="btn btn-sm btn-info py-0"
+      (click)="toggleParagraph = !toggleParagraph"
+    >
+      Toggle paragrath
+    </button>
 
     <p *ngIf="toggleParagraph; else qwerty2" class="text-danger">qwerty 1</p>
     <ng-template #qwerty2>
@@ -175,11 +209,16 @@
     </ng-template>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="mt-2">
     <h2>[ngSwitch]</h2>
-    <button class="btn btn-sm btn-info py-0" (click)="switchToggle = !switchToggle">Toggle paragrath</button>
+    <button
+      class="btn btn-sm btn-info py-0"
+      (click)="switchToggle = !switchToggle"
+    >
+      Toggle paragrath
+    </button>
 
     <p [ngSwitch]="switchToggle">
       <span *ngSwitchCase="true">switch 1</span>
@@ -188,22 +227,26 @@
     </p>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="mt-2">
     <h2>ngFor array</h2>
     <ul>
-      <li *ngFor="let num of arrayNgFor; let idx = index"><span>index: {{ idx }}, value: {{ num }}</span></li>
+      <li *ngFor="let num of arrayNgFor; let idx = index">
+        <span>index: {{ idx }}, value: {{ num }}</span>
+      </li>
     </ul>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="mt-2">
     <h2>ngFor arr obj</h2>
     <ul>
       <li *ngFor="let post of objectsArray; let idx = index">
-        <p>{{ post.title }} <b>{{ post.author }}</b></p>
+        <p>
+          {{ post.title }} <b>{{ post.author }}</b>
+        </p>
         <ul>
           <li><strong>Comments:</strong></li>
           <li *ngFor="let comment of post.comments">
@@ -215,11 +258,10 @@
     </ul>
   </div>
 
-  <hr>
+  <hr />
 
   <div class="mt-2">
     <h2>Pipes</h2>
     <p>Date now: {{ now | date | uppercase }}</p>
   </div>
-
 </div>

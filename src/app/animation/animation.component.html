@@ -1,0 +1,22 @@
+<div class="wrapp">
+  <button class="btn btn-info mb-3 mr-2" (click)="animate()">
+    Change state
+  </button>
+  <button class="btn btn-info mb-3 mr-2" (click)="boxState = 'special'">
+    Set special state
+  </button>
+  <button class="btn btn-info mb-3" (click)="visible = !visible">
+    Toggle visibillity
+  </button>
+  <h4>
+    <div
+      *ngIf="visible"
+      class="box"
+      [@box]="boxState"
+      (@box.start)="animationStarted($event)"
+      (@box.done)="animationDone($event)"
+    >
+      <span>{{ boxState | uppercase }}</span>
+    </div>
+  </h4>
+</div>

@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { ModalComponent } from "../modal/modal.component";
 import { RefDirective } from "../ref.directive";
 import { Meta, Title } from "@angular/platform-browser";
+import { AnimationComponent } from "../animation/animation.component";
 
 @Component({
   selector: 'app-training',
