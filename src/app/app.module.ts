@@ -35,6 +35,7 @@ import { CounterComponentTest } from './integration-tests/counter/counter.compon
 import { RoutingComponent } from './routing/routing.component';
 import { AnimationComponent } from './animation/animation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgAnimationComponent } from './ng-animation/ng-animation.component';
 
 const INTERSEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -71,6 +72,7 @@ const INTERSEPTOR_PROVIDER: Provider = {
     PostsComponentTest,
     RoutingComponent,
     AnimationComponent,
+    NgAnimationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
